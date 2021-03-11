@@ -2,7 +2,7 @@
 FROM ubuntu:bionic
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get install -y nginx php-fpm php-mysqli unzip systemd
+RUN apt-get install -y nginx php-fpm unzip systemd
 RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 RUN sed -i -e "s/;\?daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.2/fpm/php-fpm.conf
 RUN echo "clear_env = no" >> /etc/php/7.2/fpm/pool.d/www.conf
